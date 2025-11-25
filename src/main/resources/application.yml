@@ -9,6 +9,6 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.example.entity
+  type-aliases-package: org.kunggea.servlet_spring_boot.pojo
   configuration:
     map-underscore-to-camel-case: true
