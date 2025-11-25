@@ -12,6 +12,6 @@ spring boot <version>2.7.18</version>
 using Java 1.8.0_392 jar包可运行了
 
 
- 访问 Swagger UI
-配置完成后，可以通过以下 URL 访问 Swagger UI：
-http://localhost:8080/swagger-ui.html
+访问 API 文档
+Swagger UI: http://localhost:8080/swagger-ui.html
+OpenAPI JSON: http://localhost:8080/v3/api-docs
