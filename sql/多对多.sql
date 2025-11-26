@@ -95,3 +95,12 @@ INSERT INTO student_course (student_id, course_id, score, choose_time) VALUES
 -- 郑十选2门课（未考核，score为NULL）
 (8, 3, NULL, '2024-09-04'),
 (8, 5, NULL, '2024-09-04');
+
+
+
+-- 查询所有学生的选课信息
+select s.student_id,s.student_name,
+       c.course_id,c.course_name
+from student s
+         left join student_course sc on s.student_id = sc.student_id
+         left join course c on sc.course_id = c.course_id
