@@ -1,5 +1,16 @@
 springboot is the future of web app.
 
+导出数据库
+# 语法：mysqldump -h主机名 -u用户名 -p密码 数据库名 表1 表2 > 导出文件路径.sql
+mysqldump -hlocalhost -uroot -p123456 test_db dept emp > D:/backup/dept_emp_backup.sql
+
+
+./sql/**.sql
+
+执行导出的 SQL 文件恢复（两种方式）：
+命令行方式：
+cmd pojo数据库名称
+mysql -hlocalhost -uroot -p123456 pojo < D:/backup/dept_emp_backup.sql
 
 start web app
 test in chrome 

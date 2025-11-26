@@ -5,7 +5,7 @@
 <mapper namespace="org.kunggea.servlet_spring_boot.mapper.DeptMapper">
 
     <!--一对多例子  各种标签的使用-->
-    
+
     <!--结果映射-->
     <resultMap id="deptResultMap" type="org.kunggea.servlet_spring_boot.pojo.Dept" autoMapping="true">
 

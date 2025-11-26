@@ -20,5 +20,6 @@ public class Dept {
 
 
 
+    // 一对多
     private List<Emp> empList; // 员工列表
 }
