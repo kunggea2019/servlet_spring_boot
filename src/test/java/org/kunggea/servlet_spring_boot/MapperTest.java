@@ -8,6 +8,7 @@ import org.kunggea.servlet_spring_boot.mapper.UserMapper;
 import org.kunggea.servlet_spring_boot.pojo.Car;
 import org.kunggea.servlet_spring_boot.pojo.Dept;
 import org.kunggea.servlet_spring_boot.pojo.Student;
+import org.kunggea.servlet_spring_boot.util.Pojo2JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -39,7 +40,7 @@ public class MapperTest {
         List<Student> students = studentMapper.findAllCoursesOfStudent();
 
         for (Student student : students) {
-            System.out.println(student);
+            System.out.println(Pojo2JsonUtil.pojo2Json(student));
         }
         // bean with List 一对多  多对多  也是ok的
 //        Student(studentId=1, studentName=张三, courseList=[Course(courseId=1, courseName=MySQL数据库), Course(courseId=2, courseName=Java编程), Course(courseId=4, courseName=数据结构)])
@@ -51,6 +52,26 @@ public class MapperTest {
 //        Student(studentId=7, studentName=吴九, courseList=[Course(courseId=1, courseName=MySQL数据库), Course(courseId=2, courseName=Java编程), Course(courseId=6, courseName=人工智能导论)])
 //        Student(studentId=8, studentName=郑十, courseList=[Course(courseId=3, courseName=计算机网络), Course(courseId=5, courseName=Python爬虫)])
 
+        // 转为json好看一些
+//        {
+//            "studentId":1,
+//            "studentName":"张三",
+//            "courseList": [
+//            {
+//                "courseId":1,
+//                    "courseName":"MySQL数据库"
+//            },
+//            {
+//                "courseId":2,
+//                    "courseName":"Java编程"
+//            },
+//            {
+//                "courseId":4,
+//                    "courseName":"数据结构"
+//            }
+//                             ]
+//        }
+
     }
 
 
@@ -61,7 +82,7 @@ public class MapperTest {
     public void findCar() {
         List<Car> cars = carMapper.findCar();
         for (Car car : cars) {
-            System.out.println(car);
+            System.out.println(Pojo2JsonUtil.pojo2Json(car));
         }
         // 完全ok的呢
 //        Car(carId=1, carModel=凯美瑞, customer=Customer(customerId=1, customerName=null, address=北京市海淀区中关村))
