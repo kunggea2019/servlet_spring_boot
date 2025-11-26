@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kunggea.servlet_spring_boot.mapper.DeptMapper">
+
+    <!--一对多例子  各种标签的使用-->
+    
+    <!--结果映射-->
+    <resultMap id="deptResultMap" type="org.kunggea.servlet_spring_boot.pojo.Dept" autoMapping="true">
+
+        <!--dept_id不能写错，不然结果集不知道哪些list属于同一个dept_id里了-->
+        <id property="deptId" column="dept_id"/>
+        <result property="deptName" column="dept_name"/>
+
+        <collection property="empList" ofType="org.kunggea.servlet_spring_boot.pojo.Emp">
+
+            <id property="empId" column="emp_id"/>
+            <result property="empName" column="emp_name"/>
+            <result property="job" column="job"/>
+
+        </collection>
+
+    </resultMap>
+
+
+    <!-- 查询所有部门及部门的员工List -->
+    <select id="findAllDept" resultMap="deptResultMap">
+        select d.dept_id,d.dept_name,
+               e.emp_id,e.emp_name ,e.job
+        from dept d
+                 left join emp e  on d.dept_id = e.dept_id;
+    </select>
+
+</mapper>
