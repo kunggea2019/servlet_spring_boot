@@ -15,3 +15,7 @@ using Java 1.8.0_392 jar包可运行了
 访问 API 文档
 Swagger UI: http://localhost:8080/swagger-ui.html
 OpenAPI JSON: http://localhost:8080/v3/api-docs
+
+
+./eclipse目录是可以eclipse运行的springboot项目  358版本
+jp需要的话可以拿出来测试下eclipse的环境是否配置成功
