@@ -91,6 +91,18 @@ public class MapperTest {
 //        Car(carId=4, carModel=C级, customer=Customer(customerId=4, customerName=null, address=深圳市南山区科技园))
 //        Car(carId=5, carModel=Model 3, customer=Customer(customerId=6, customerName=null, address=成都市锦江区春熙路))
 //        Car(carId=6, carModel=迈腾, customer=Customer(customerId=7, customerName=null, address=武汉市洪山区光谷))
+
+        // 转为json
+//        {
+//            "carId": 3,
+//                "carModel": "5系",
+//                "customer": {
+//            "customerId": 3,
+//                    "customerName": null,
+//                    "address": "广州市天河区珠江新城"
+//        }
+//        }
+
     }
 
 
