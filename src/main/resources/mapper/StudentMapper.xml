@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.kunggea.servlet_spring_boot.mapper.StudentMapper">
+
+    <!--一对多例子  各种标签的使用-->
+
+    <!--结果映射-->
+    <resultMap id="studentResultMap" type="org.kunggea.servlet_spring_boot.pojo.Student" autoMapping="true">
+
+        <!--dept_id不能写错，不然结果集不知道哪些list属于同一个dept_id里了-->
+
+        <id property="studentId" column="student_id"/>
+        <result property="studentName" column="student_name"/>
+
+        <collection property="courseList" ofType="org.kunggea.servlet_spring_boot.pojo.Course">
+
+            <id property="courseId" column="course_id"/>
+            <result property="courseName" column="course_name"/>
+
+        </collection>
+
+    </resultMap>
+
+
+    <!--多对多的查询-->
+    <!-- 查询学生选了几门课 -->
+    <select id="findAllCoursesOfStudent" resultMap="studentResultMap">
+        select s.student_id,s.student_name,
+               c.course_id,c.course_name
+        from student s
+                 left join student_course sc on s.student_id = sc.student_id
+                 left join course c on sc.course_id = c.course_id
+    </select>
+
+</mapper>
