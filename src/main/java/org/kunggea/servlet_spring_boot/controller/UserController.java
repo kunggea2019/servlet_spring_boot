@@ -35,7 +35,7 @@ public class UserController {
         return userService.findAllUser();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getUserById/{id}")
     @Operation(summary = "根据ID查询用户", description = "根据用户ID获取特定用户信息")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "成功查询用户"),
